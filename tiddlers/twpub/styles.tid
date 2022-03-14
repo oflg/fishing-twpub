@@ -1,0 +1,130 @@
+tags: $:/tags/Stylesheet
+title: $:/Import/TWPUB/styles.css
+
+\rules only filteredtranscludeinline transcludeinline macrodef macrocallinline macrocallblock
+
+/* Badge */
+
+.twpub-badge {
+	width: 100%;
+	text-align: left;
+	border: 1px solid <<color muted-foreground>>;
+	background: <<colour background>>;
+	fill: <<color muted-foreground>>;
+	padding: 0.5em;
+	display: flex;
+	align-items: center;
+	<<box-shadow "1px 1px 5px rgba(0, 0, 0, 0.3)">>
+	margin: 0.5em 0;
+	border-radius: 4px;
+}
+
+.twpub-badge.tc-popup-handle,
+.twpub-badge:hover {
+	background: <<colour primary>>;
+	color: <<colour background>>;
+	fill: <<color background>>;
+}
+
+.twpub-badge-icon {
+	padding-right: 0.5em;
+}
+
+.twpub-badge:hover .twpub-badge-icon {
+}
+
+.twpub-badge .twpub-badge-icon svg {
+	width: 2em;
+	height: 2em;
+	vertical-align: middle;
+}
+
+.twpub-badge-text {
+	display: flex;
+	padding-left: 0.5em;
+	flex-grow: 1;
+	flex-direction: column;
+}
+
+.twpub-badge-title {
+	font-weight: bold;
+}
+
+.twpub-badge-author {
+
+}
+
+.twpub-badge-cover {
+}
+
+.twpub-badge-cover img {
+	height: 4em;
+	width: auto;
+	vertical-align: middle;
+}
+
+/* Library */
+
+.twpub-library-button {
+	padding: 4px 8px;
+	margin: 4px 0;
+	border: none;
+	cursor: pointer;
+	background: <<colour download-background>>;
+	border-radius: 1em;
+	color: <<colour download-foreground>>;
+	fill: <<colour download-foreground>>;
+}
+
+.twpub-library-button svg {
+	vertical-align: bottom;
+}
+
+/* Search results */
+
+.twpub-search-results {
+	white-space: normal;
+}
+
+.twpub-search-results a.tc-tiddlylink.twpub-search-result {
+	padding: 0.5em 0;
+	border-radius: 0.25em;
+}
+
+/* Image gallery */
+
+.twpub-image-gallery-item-wrapper {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+}
+
+.twpub-image-gallery-item {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+/* Tiddler fields dropdown */
+
+.tc-tiddler-fields-button {
+	 position: relative;
+	 display: inline-block;
+}
+
+.tc-tiddler-fields-button .tc-drop-down {
+	font-size: {{$:/themes/tiddlywiki/vanilla/metrics/fontsize}};
+	line-height: {{$:/themes/tiddlywiki/vanilla/metrics/lineheight}};
+	word-wrap: break-word;
+}
+
+.tc-tiddler-fields-button .tc-drop-down .tc-view-field-table {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.tc-tiddler-fields-button .tc-drop-down .tc-view-field-table,
+.tc-tiddler-fields-button .tc-drop-down .tc-view-field-table th,
+.tc-tiddler-fields-button .tc-drop-down .tc-view-field-table td {
+	border: none;
+}

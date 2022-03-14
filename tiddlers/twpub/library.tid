@@ -1,0 +1,7 @@
+caption: <$text text=<<lan "$:/plugins/oflg/fishing-twpub/languages" "twpublibrary">>/>
+library-type: twpub
+tags: $:/tags/PluginLibrary
+title: $:/config/TWPUBPluginLibrary
+url: https://twpub-tools.org/library/
+
+<$text text=<<lan "$:/plugins/oflg/fishing-twpub/languages" "twpublibrarytip">>/>

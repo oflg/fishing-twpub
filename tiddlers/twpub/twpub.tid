@@ -1,0 +1,30 @@
+title: $:/Import/TWPUB
+
+[img height=60 [$:/Import/TWPUB/logo]]<br/>
+<$list
+    filter="[all[tiddlers+shadows]tag[$:/tags/PluginLibrary]library-type[twpub]]"
+>
+    <div>
+        <$button
+            class="twpub-library-button"
+        >
+            <$action-sendmessage
+                $message="tm-load-plugin-library"
+                url={{!!url}}
+                infoTitlePrefix="$:/temp/RemoteAssetInfo/"
+            />
+            <$action-sendmessage
+                $message="tm-modal"
+                $param="$:/Import/TWPUB/librarylist"
+                currentTiddler=<<currentTiddler>>
+            />
+            {{$:/core/images/download-button}} ''<$transclude tiddler=<<currentTiddler>> field="caption"/>''
+        </$button>
+    </div>
+</$list>
+
+<$list
+    filter="[all[tiddlers]plugin-type[plugin]has[epub-title]sort[]]"
+    template="$:/Import/TWPUB/twpub-badge"
+    storyview="pop"
+/>

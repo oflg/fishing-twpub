@@ -1,0 +1,40 @@
+title: $:/Import/TWPUB/twpub-badge
+
+<$button popup=<<qualify "$:/state/popup/twpub-badge">> class="twpub-badge">
+    <div class="twpub-badge-cover">
+        <$list filter="[<currentTiddler>has[cover-image]]" variable="ignore" emptyMessage="{{$:/Import/TWPUB/default-book-cover}}">
+            <$transclude tiddler=<<currentTiddler>> subtiddler={{!!cover-image}}/>
+        </$list>
+    </div>
+    <div class="twpub-badge-text">
+        <div class="twpub-badge-title">
+            <$text text={{!!epub-title}}/>
+        </div>
+        <div class="twpub-badge-author">
+            <$text text={{!!epub-creator}}/>
+        </div>
+    </div>
+    <$button
+        class="twpub-library-button"
+    >
+        {{$:/core/images/plus-button}} ''<<lan "$:/plugins/oflg/fishing/languages" "addfiltertip">>''
+        <$action-setfield
+            $tiddler={{{ [{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
+            type="application/json"
+        />
+    </$button>
+</$button>
+<$reveal state=<<qualify "$:/state/popup/twpub-badge">> type="popup" position="below" tag="div" class="twpub-badge-dropdown" animate="yes" retain="yes">
+    <div class="tc-drop-down-wrapper">
+        <div class="tc-drop-down">
+            <$button class="tc-btn-invisible">
+                <$action-navigate $to=<<currentTiddler>>/>
+                Open TWPub tiddler
+            </$button>
+            <$button class="tc-btn-invisible">
+                <$action-deletetiddler $tiddler=<<currentTiddler>>/>
+                Delete this TWPub
+            </$button>
+        </div>
+    </div>
+</$reveal>

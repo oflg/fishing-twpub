@@ -1,0 +1,7 @@
+title: $:/plugins/oflg/fishing-twpub/languages/en-GB
+type: application/x-tiddler-dictionary
+
+twpub: TWPUB books
+twpubtip: TWPUB is a electronic publications based on TiddlyWiki
+twpublibrary: TWPUB Books Library
+twpublibrarytip: This plugin library can be used to install and update TWPUB books.
