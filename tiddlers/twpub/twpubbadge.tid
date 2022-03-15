@@ -16,6 +16,7 @@ title: $:/Import/TWPUB/twpub-badge
     </div>
     <$button
         class="twpub-library-button"
+        disabled={{{ [all[tiddlers+shadows]twpub<currentTiddler>then[yes]else[no]] }}}
     >
         <$list
             filter="[<currentTiddler>plugintiddlers[]role[toc]sortan[]]"
@@ -29,7 +30,6 @@ title: $:/Import/TWPUB/twpub-badge
                 twpub=<<currentTiddler>>
                 caption="{{||Excerpt}}"
                 text="{{||$:/Import/TWPUB/twpub-text}}"
-                $overwrite="yes"
             />
         </$list>
         <$action-createtiddler
@@ -37,7 +37,6 @@ title: $:/Import/TWPUB/twpub-badge
             twpub=<<currentTiddler>>
             caption="{{||Excerpt}}"
             text="{{||$:/Import/TWPUB/twpub-book}}"
-            $overwrite="yes"
         >
             <$let
                 fishingrod="[prefix[createTiddler-title]!tag[!]]"

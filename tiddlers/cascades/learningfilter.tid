@@ -1,4 +1,4 @@
 title: $:/config/FishingFilter/Learning/twpub
 tags: $:/tags/FishingFilter/learning
 
-[{!!title}split[/]match[twpub]then{!!title}] -[{!!title}subfilter{$:/plugins/oflg/fishing/fishingpond!!unduepond}]
+[{!!title}!has[epub-title]split[/]match[twpub]then{!!title}] -[{!!title}subfilter{$:/plugins/oflg/fishing/fishingpond!!unduepond}]
