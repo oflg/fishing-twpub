@@ -5,3 +5,6 @@ twpub: TWPUB books
 twpubtip: TWPUB is a electronic publications based on TiddlyWiki
 twpublibrary: TWPUB Books Library
 twpublibrarytip: This plugin library can be used to install and update TWPUB books.
+opentwpub: Open the source tiddler
+addtip: add to commonly used Filter
+added: Added

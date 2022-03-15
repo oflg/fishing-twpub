@@ -17,23 +17,66 @@ title: $:/Import/TWPUB/twpub-badge
     <$button
         class="twpub-library-button"
     >
-        {{$:/core/images/plus-button}} ''<<lan "$:/plugins/oflg/fishing/languages" "addfiltertip">>''
-        <$action-setfield
-            $tiddler={{{ [{$:/temp/fishing!!fishingrod}addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
-            type="application/json"
-        />
+        <$list
+            filter="[<currentTiddler>plugintiddlers[]role[toc]sortan[]]"
+            variable="tocTiddler"
+        >
+            <$action-createtiddler
+                $basetitle={{{ [<tocTiddler>removeprefix[$:/plugins/]search-replace[toc],{!!epub-title}search-replace[/navpoint],[]] [<tocTiddler>get[caption]] +[join[/]] }}}
+                tags={{{ [<tocTiddler>tags[]removeprefix[$:/plugins/]search-replace[toc],{!!epub-title}search-replace[/navpoint],[]] [<tocTiddler>tags[]get[caption]] +[join[/]format:titlelist[]] }}}
+                twpub-after={{{ [<tocTiddler>get[target]] }}}
+                twpub-before={{{ [<currentTiddler>plugintiddlers[]role[toc]sortan[]after<tocTiddler>first[]get[target]] ~[<currentTiddler>plugintiddlers[]role[text]sortan[]last[]] }}}
+                twpub=<<currentTiddler>>
+                caption="{{||Excerpt}}"
+                text="{{||$:/Import/TWPUB/twpub-text}}"
+                $overwrite="yes"
+            />
+        </$list>
+        <$action-createtiddler
+            $basetitle={{{ [<currentTiddler>removeprefix[$:/plugins/]addsuffix[/]addsuffix{!!epub-title}] }}}
+            twpub=<<currentTiddler>>
+            caption="{{||Excerpt}}"
+            text="{{||$:/Import/TWPUB/twpub-book}}"
+            $overwrite="yes"
+        >
+            <$let
+                fishingrod="[prefix[createTiddler-title]!tag[!]]"
+            >
+                <$action-setfield
+                    $tiddler={{{ [<fishingrod>search-replace[createTiddler-title],<createTiddler-title>addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
+                    caption={{!!epub-title}}
+                    text="""{"neworder": "[sortan[]]"}"""
+                    type="application/json"
+                />
+            </$let>
+        </$action-createtiddler>
+        {{$:/core/images/plus-button}} ''<$text text={{{ [all[tiddlers+shadows]twpub<currentTiddler>then<lan "$:/plugins/oflg/fishing-twpub/languages" "added">else<lan "$:/plugins/oflg/fishing-twpub/languages" "add">] }}}/>''
     </$button>
 </$button>
-<$reveal state=<<qualify "$:/state/popup/twpub-badge">> type="popup" position="below" tag="div" class="twpub-badge-dropdown" animate="yes" retain="yes">
-    <div class="tc-drop-down-wrapper">
-        <div class="tc-drop-down">
-            <$button class="tc-btn-invisible">
-                <$action-navigate $to=<<currentTiddler>>/>
-                Open TWPub tiddler
-            </$button>
-            <$button class="tc-btn-invisible">
-                <$action-deletetiddler $tiddler=<<currentTiddler>>/>
-                Delete this TWPub
+<$reveal
+    state=<<qualify "$:/state/popup/twpub-badge">>
+    type="popup"
+    position="below"
+    tag="div"
+    class="twpub-badge-dropdown"
+    animate="yes"
+>
+    <div
+        class="tc-drop-down-wrapper"
+    >
+        <div
+            class="tc-drop-down"
+            style="min-width:0;"
+        >
+            <$button
+                class="tc-btn-invisible"
+            >
+                <$action-navigate
+                    $to=<<currentTiddler>>
+                />
+                <$text
+                    text=<<lan "$:/plugins/oflg/fishing-twpub/languages" "opentwpub">>
+                />
             </$button>
         </div>
     </div>

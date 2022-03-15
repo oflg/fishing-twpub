@@ -1,0 +1,10 @@
+title: $:/Import/TWPUB/twpub-book
+
+<$transclude tiddler={{{ [{!!twpub}addsuffix[/cover]] }}}/>
+
+<$macrocall
+    $name="toc-tabbed-internal-nav"
+    tag={{{ [{!!twpub}removeprefix[$:/plugins/]] [{!!twpub}get[epub-title]] +[join[/]] }}}
+    sort="sortan[]"
+    selectedTiddler="$:/temp/toc/selectedTiddler"
+/>

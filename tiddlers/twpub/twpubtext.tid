@@ -1,0 +1,13 @@
+title: $:/Import/TWPUB/twpub-text
+
+\define link-actions()
+<$action-sendmessage $message="tm-scroll" selector={{{ [<navigateTo>escapecss[]addprefix[#]] }}}/>
+\end
+
+<$linkcatcher actions=<<link-actions>>>
+    <$list filter="[{!!twpub}plugintiddlers[]role[text]sortan[]allafter:include{!!twpub-after}allbefore:include{!!twpub-before}]">
+        <a id=<<currentTiddler>>>
+            <$transclude mode="inline"/>
+        </a>
+    </$list>
+</$linkcatcher>

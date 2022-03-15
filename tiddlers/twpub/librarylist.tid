@@ -6,22 +6,22 @@ title: $:/Import/TWPUB/librarylist
 
 \define display-plugin-info(type)
 <div class="twpub-badge">
-<div class="twpub-badge-cover">
-<$list filter="[<assetInfo>has[cover-image-url]]" variable="ignore" emptyMessage="{{$:/Import/TWPUB/default-book-cover}}">
-<img src={{{ [<assetInfo>get[cover-image-url]] }}}/>
-</$list>
-</div>
-<div class="twpub-badge-text">
-<div class="twpub-badge-title">
-<$text text={{{ [<assetInfo>get[epub-title]] }}}/>
-</div>
-<div class="twpub-badge-author">
-<$text text={{{ [<assetInfo>get[epub-creator]] }}}/>
-</div>
-</div>
-<div class="twpub-badge-install">
-<<install-plugin-button>>
-</div>
+    <div class="twpub-badge-cover">
+        <$list filter="[<assetInfo>has[cover-image-url]]" variable="ignore" emptyMessage="{{$:/Import/TWPUB/default-book-cover}}">
+            <img src={{{ [<assetInfo>get[cover-image-url]] }}}/>
+        </$list>
+    </div>
+    <div class="twpub-badge-text">
+        <div class="twpub-badge-title">
+            <$text text={{{ [<assetInfo>get[epub-title]] }}}/>
+        </div>
+        <div class="twpub-badge-author">
+            <$text text={{{ [<assetInfo>get[epub-creator]] }}}/>
+        </div>
+    </div>
+    <div class="twpub-badge-install">
+        <<install-plugin-button>>
+    </div>
 </div>
 \end
 
