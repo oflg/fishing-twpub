@@ -4,6 +4,6 @@ title: $:/Import/TWPUB/twpub-book
 
 <$macrocall
     $name="toc-tabbed-internal-nav"
-    tag={{{ [{!!twpub}removeprefix[$:/plugins/]] [{!!twpub}get[epub-title]] +[join[/]] }}}
+    tag={{!!title}}
     sort="sortan[]"
 />
