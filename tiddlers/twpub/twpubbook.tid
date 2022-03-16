@@ -6,5 +6,4 @@ title: $:/Import/TWPUB/twpub-book
     $name="toc-tabbed-internal-nav"
     tag={{{ [{!!twpub}removeprefix[$:/plugins/]] [{!!twpub}get[epub-title]] +[join[/]] }}}
     sort="sortan[]"
-    selectedTiddler="$:/temp/toc/selectedTiddler"
 />

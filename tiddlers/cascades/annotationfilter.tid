@@ -1,4 +1,4 @@
 title: $:/config/FishingFilter/Annotation/twpub
 tags: $:/tags/FishingFilter/annotation
 
-[{!!title}prefix[twpub/]]
+[{!!title}has[twpub]]

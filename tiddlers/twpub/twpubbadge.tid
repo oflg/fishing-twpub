@@ -39,10 +39,10 @@ title: $:/Import/TWPUB/twpub-badge
             text="{{||$:/Import/TWPUB/twpub-book}}"
         >
             <$let
-                fishingrod="[prefix[createTiddler-title]!tag[!]]"
+                fishingrod="[twpub[currentTiddler]!tag[!]]"
             >
                 <$action-setfield
-                    $tiddler={{{ [<fishingrod>search-replace[createTiddler-title],<createTiddler-title>addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
+                    $tiddler={{{ [<fishingrod>search-replace[currentTiddler],<currentTiddler>addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
                     caption={{!!epub-title}}
                     text="""{"neworder": "[sortan[]]"}"""
                     type="application/json"
