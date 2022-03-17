@@ -18,20 +18,26 @@ title: $:/Import/TWPUB/twpub-badge
         class="twpub-library-button"
         disabled={{{ [all[tiddlers+shadows]twpub<currentTiddler>then[yes]else[no]] }}}
     >
-        <$list
-            filter="[<currentTiddler>plugintiddlers[]role[toc]sortan[]]"
-            variable="tocTiddler"
+        <$let
+            firstText={{{ [<currentTiddler>plugintiddlers[]role[text]sortan[]first[]] }}}
+            lastText={{{ [<currentTiddler>plugintiddlers[]role[text]sortan[]last[]] }}}
         >
-            <$action-createtiddler
-                $basetitle={{{ [<tocTiddler>removeprefix[$:/plugins/]search-replace[toc],{!!epub-title}search-replace[/navpoint],[]] [<tocTiddler>get[caption]] +[join[/]] }}}
-                tags={{{ [<tocTiddler>tags[]removeprefix[$:/plugins/]search-replace[toc],{!!epub-title}search-replace[/navpoint],[]] [<tocTiddler>tags[]get[caption]] +[join[/]format:titlelist[]] }}}
-                twpub-after={{{ [<tocTiddler>get[target]] }}}
-                twpub-before={{{ [<currentTiddler>plugintiddlers[]role[toc]sortan[]after<tocTiddler>first[]get[target]] ~[<currentTiddler>plugintiddlers[]role[text]sortan[]last[]] }}}
-                twpub=<<currentTiddler>>
-                caption="{{||Excerpt}}"
-                text="{{||$:/Import/TWPUB/twpub-text}}"
-            />
-        </$list>
+            <$list
+                filter="[<currentTiddler>plugintiddlers[]role[toc]sortan[]]"
+                variable="tocTiddler"
+                counter="counter"
+            >
+                <$action-createtiddler
+                    $basetitle={{{ [<tocTiddler>removeprefix[$:/plugins/]search-replace[toc],{!!epub-title}search-replace[/navpoint],[]search-replace[/np],[]] [<tocTiddler>get[caption]] +[join[/]] }}}
+                    tags={{{ [<tocTiddler>tags[]removeprefix[$:/plugins/]search-replace[toc],{!!epub-title}search-replace[/navpoint],[]search-replace[/np],[]] [<tocTiddler>tags[]get[caption]] +[join[/]format:titlelist[]] }}}
+                    twpub-after={{{ [<counter-first>match[yes]then<firstText>] ~[<tocTiddler>get[target]] }}}
+                    twpub-before={{{ [<counter-first>match[yes]then<lastText>] ~[<currentTiddler>plugintiddlers[]role[toc]sortan[]after<tocTiddler>first[]get[target]] }}}
+                    twpub=<<currentTiddler>>
+                    caption="{{||Excerpt}}"
+                    text="{{||$:/Import/TWPUB/twpub-text}}"
+                />
+            </$list>
+        </$let>
         <$action-createtiddler
             $basetitle={{{ [<currentTiddler>removeprefix[$:/plugins/]addsuffix[/]addsuffix{!!epub-title}] }}}
             twpub=<<currentTiddler>>

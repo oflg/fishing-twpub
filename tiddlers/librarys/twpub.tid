@@ -2,6 +2,6 @@ caption: <$text text=<<lan "$:/plugins/oflg/fishing-twpub/languages" "twpublibra
 library-type: twpub
 tags: $:/tags/PluginLibrary
 title: $:/config/TWPUBPluginLibrary
-url: https://twpub-tools.org/library/
+url: https://oflg.github.io/fishing-manual/library/twpub/
 
 <$text text=<<lan "$:/plugins/oflg/fishing-twpub/languages" "twpublibrarytip">>/>
