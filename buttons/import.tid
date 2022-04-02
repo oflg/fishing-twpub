@@ -2,8 +2,8 @@ title: $:/plugins/oflg/fishing-twpub/buttons/import
 tags: $:/tags/FishingBait/Button
 
 <$button
-    tooltip=<<lan "$:/plugins/oflg/fishing-twpub/languages" "twpubtip">>
-    aria-label=<<lan "$:/plugins/oflg/fishing-twpub/languages" "twpubtip">>
+    tooltip={{$:/language/fishing/twpubtip}}
+    aria-label={{$:/language/fishing/twpubtip}}
     class="tc-btn-invisible"
     style="margin:0;padding:0 5px;font-size:10pt;"
 >
@@ -12,5 +12,5 @@ tags: $:/tags/FishingBait/Button
         $state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>
         $coords=""
     />
-    <$text text=<<lan "$:/plugins/oflg/fishing-twpub/languages" "twpub">>/>
+    {{$:/language/fishing/twpub}}
 </$button>

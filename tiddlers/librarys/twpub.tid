@@ -1,7 +1,7 @@
-caption: <$text text=<<lan "$:/plugins/oflg/fishing-twpub/languages" "twpublibrary">>/>
+caption: {{$:/language/fishing/twpublibrary}}
 library-type: twpub
 tags: $:/tags/PluginLibrary
 title: $:/config/TWPUBPluginLibrary
-url: https://oflg.github.io/fishing-manual/library/twpub/
+url: https://tiddlymemo.org/manual/library/twpub/
 
-<$text text=<<lan "$:/plugins/oflg/fishing-twpub/languages" "twpublibrarytip">>/>
+{{$:/language/fishing/twpublibrarytip}}

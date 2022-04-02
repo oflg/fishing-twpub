@@ -55,7 +55,7 @@ title: $:/Import/TWPUB/twpub-badge
                 />
             </$let>
         </$action-createtiddler>
-        {{$:/core/images/plus-button}} ''<$text text={{{ [all[tiddlers+shadows]twpub<currentTiddler>then<lan "$:/plugins/oflg/fishing-twpub/languages" "added">else<lan "$:/plugins/oflg/fishing-twpub/languages" "add">] }}}/>''
+        {{$:/core/images/plus-button}} ''<$text text={{{ [all[tiddlers+shadows]twpub<currentTiddler>then{{$:/language/fishing/added}else{{$:/language/fishing/add}] }}}/>''
     </$button>
 </$button>
 <$reveal
@@ -79,9 +79,7 @@ title: $:/Import/TWPUB/twpub-badge
                 <$action-navigate
                     $to=<<currentTiddler>>
                 />
-                <$text
-                    text=<<lan "$:/plugins/oflg/fishing-twpub/languages" "opentwpub">>
-                />
+                {{$:/language/fishing/opentwpub}}
             </$button>
         </div>
     </div>
