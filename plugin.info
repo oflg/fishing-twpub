@@ -1,6 +1,6 @@
 {
     "author": "oflg",
-    "core-version": ">=5.2.1",
+    "core-version": ">=5.2.2",
     "description": "Import TWPUB into Fishing",
     "list": "readme license",
     "name": "Fishing TWPUB",
@@ -8,5 +8,5 @@
     "plugin-type": "plugin",
     "source": "https://github.com/oflg/fishing-twpub",
     "title": "$:/plugins/oflg/fishing-twpub",
-    "version": "0.1.2"
+    "version": "0.2.0"
 }
