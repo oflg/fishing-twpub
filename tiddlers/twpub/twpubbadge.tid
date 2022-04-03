@@ -30,8 +30,10 @@ title: $:/Import/TWPUB/twpub-badge
                 <$action-createtiddler
                     $basetitle={{{ [<tocTiddler>removeprefix[$:/plugins/]search-replace[toc],{!!epub-title}search-replace[/navpoint],[]search-replace[/np],[]] [<tocTiddler>get[caption]] +[join[/]] }}}
                     tags={{{ [<tocTiddler>tags[]removeprefix[$:/plugins/]search-replace[toc],{!!epub-title}search-replace[/navpoint],[]search-replace[/np],[]] [<tocTiddler>tags[]get[caption]] +[join[/]format:titlelist[]] }}}
-                    twpub-after={{{ [<counter-first>match[yes]then<firstText>] ~[<tocTiddler>get[target]] }}}
-                    twpub-before={{{ [<counter-first>match[yes]then<lastText>] ~[<currentTiddler>plugintiddlers[]role[toc]sortan[]after<tocTiddler>first[]get[target]] }}}
+                    twpub-after={{{ [<counter-first>match[yes]then<firstText>]
+                                    ~[<tocTiddler>get[target]] }}}
+                    twpub-before={{{ [<counter-first>match[yes]then<lastText>]
+                                    ~[<currentTiddler>plugintiddlers[]role[toc]sortan[]after<tocTiddler>first[]get[target]] }}}
                     twpub=<<currentTiddler>>
                     caption="{{||Excerpt}}"
                     text="{{||$:/Import/TWPUB/twpub-text}}"

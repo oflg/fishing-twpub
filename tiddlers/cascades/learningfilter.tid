@@ -1,4 +1,5 @@
 title: $:/config/FishingFilter/Learning/twpub
 tags: $:/tags/FishingFilter/learning
 
-[{!!title}has[twpub]] -[{!!title}subfilter{$:/plugins/oflg/fishing/fishingpond!!unduepond}]
+[{!!title}has[twpub]]
+-[{!!title}subfilter{$:/plugins/oflg/fishing/fishingpond!!unduepond}]
