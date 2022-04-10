@@ -1,0 +1,11 @@
+title: $:/plugins/oflg/fishing-twpub/buttons/import/twpub
+tags: $:/tags/FishingBait
+caption: {{$:/language/fishing/twpub}}
+description: {{$:/language/fishing/twpubtip}}
+condition: [all[shadows+tiddlers]tag[$:/tags/FishingBait]!is[draft]first[]]
+
+<$action-navigate $to="$:/Import/TWPUB"/>
+<$action-popup
+    $state=<<qualify "$:/state/popup/$:/plugins/oflg/fishing/fishingdeck">>
+    $coords=""
+/>
