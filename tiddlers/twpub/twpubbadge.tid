@@ -57,7 +57,7 @@ title: $:/Import/TWPUB/twpub-badge
                 />
             </$let>
         </$action-createtiddler>
-        {{$:/core/images/plus-button}} ''<$text text={{{ [all[tiddlers+shadows]twpub<currentTiddler>then{{$:/language/fishing/added}else{{$:/language/fishing/add}] }}}/>''
+        {{$:/core/images/plus-button}} ''<$text text={{{ [all[tiddlers+shadows]twpub<currentTiddler>then{$:/language/fishing/added}else{$:/language/fishing/add}] }}}/>''
     </$button>
 </$button>
 <$reveal
