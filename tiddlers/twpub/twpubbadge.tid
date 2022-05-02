@@ -1,17 +1,39 @@
 title: $:/Import/TWPUB/twpub-badge
 
-<$button popup=<<qualify "$:/state/popup/twpub-badge">> class="twpub-badge">
-    <div class="twpub-badge-cover">
-        <$list filter="[<currentTiddler>has[cover-image]]" variable="ignore" emptyMessage="{{$:/Import/TWPUB/default-book-cover}}">
-            <$transclude tiddler=<<currentTiddler>> subtiddler={{!!cover-image}}/>
+<$button
+    popup=<<qualify "$:/state/popup/twpub-badge">>
+    class="twpub-badge"
+>
+    <div
+        class="twpub-badge-cover"
+    >
+        <$list
+            filter="[<currentTiddler>has[cover-image]]"
+            variable="ignore"
+            emptyMessage="{{$:/Import/TWPUB/default-book-cover}}"
+        >
+            <$transclude
+                tiddler=<<currentTiddler>>
+                subtiddler={{!!cover-image}}
+            />
         </$list>
     </div>
-    <div class="twpub-badge-text">
-        <div class="twpub-badge-title">
-            <$text text={{!!epub-title}}/>
+    <div
+        class="twpub-badge-text"
+    >
+        <div
+            class="twpub-badge-title"
+        >
+            <$text
+                text={{!!epub-title}}
+            />
         </div>
-        <div class="twpub-badge-author">
-            <$text text={{!!epub-creator}}/>
+        <div
+            class="twpub-badge-author"
+        >
+            <$text
+                text={{!!epub-creator}}
+            />
         </div>
     </div>
     <$button
@@ -19,8 +41,8 @@ title: $:/Import/TWPUB/twpub-badge
         disabled={{{ [all[tiddlers+shadows]twpub<currentTiddler>then[yes]else[no]] }}}
     >
         <$let
-            firstText={{{ [<currentTiddler>plugintiddlers[]role[text]sortan[]first[]] }}}
-            lastText={{{ [<currentTiddler>plugintiddlers[]role[text]sortan[]last[]] }}}
+            firstText={{{ [[/text/000000000]addprefix<currentTiddler>] }}}
+            lastText={{{ [{!!count-chunks}subtract[1]pad[9]addprefix[/text/]addprefix<currentTiddler>] }}}
         >
             <$list
                 filter="[<currentTiddler>plugintiddlers[]role[toc]sortan[]]"
@@ -28,11 +50,11 @@ title: $:/Import/TWPUB/twpub-badge
                 counter="counter"
             >
                 <$action-createtiddler
-                    $basetitle={{{ [<tocTiddler>removeprefix[$:/plugins/]search-replace[toc],{!!epub-title}search-replace[/navpoint],[]search-replace[/np],[]] [<tocTiddler>get[caption]] +[join[/]] }}}
-                    tags={{{ [<tocTiddler>tags[]removeprefix[$:/plugins/]search-replace[toc],{!!epub-title}search-replace[/navpoint],[]search-replace[/np],[]] [<tocTiddler>tags[]get[caption]] +[join[/]format:titlelist[]] }}}
+                    $basetitle={{{ [<tocTiddler>removeprefix[$:/plugins/]] [<tocTiddler>get[caption]] +[join[/]] }}}
+                    tags={{{ [<tocTiddler>tags[]removeprefix[$:/plugins/]] [<tocTiddler>tags[]get[caption]] +[join[/]format:titlelist[]] }}}
                     twpub-after={{{ [<counter-first>match[yes]then<firstText>]
                                     ~[<tocTiddler>get[target]] }}}
-                    twpub-before={{{ [<counter-first>match[yes]then<lastText>]
+                    twpub-before={{{ [<counter-last>match[yes]then<lastText>]
                                     ~[<currentTiddler>plugintiddlers[]role[toc]sortan[]after<tocTiddler>first[]get[target]] }}}
                     twpub=<<currentTiddler>>
                     caption="{{||Excerpt}}"
@@ -57,7 +79,11 @@ title: $:/Import/TWPUB/twpub-badge
                 />
             </$let>
         </$action-createtiddler>
-        {{$:/core/images/plus-button}} ''<$text text={{{ [all[tiddlers+shadows]twpub<currentTiddler>then{$:/language/fishing/added}else{$:/language/fishing/add}] }}}/>''
+        <$list
+            filter="[all[tiddlers+shadows]twpub<currentTiddler>count[]match[0]]"
+        >
+            {{$:/core/images/excise}}
+        </$list> ''<$text text={{{ [all[tiddlers+shadows]twpub<currentTiddler>then{$:/language/fishing/added}else{$:/language/fishing/add}] }}}/>''
     </$button>
 </$button>
 <$reveal
@@ -82,6 +108,26 @@ title: $:/Import/TWPUB/twpub-badge
                     $to=<<currentTiddler>>
                 />
                 {{$:/language/fishing/opentwpub}}
+            </$button>
+            <$button
+                class="tc-btn-invisible"
+            >
+                <$let
+                    fishingrod="[twpub[currentTiddler]!tag[!]]"
+                >
+                     <$list
+                        filter="[all[tiddlers+shadows]twpub<currentTiddler>first[]]"
+                        variable="null"
+                    >
+                        <$action-setfield
+                            $tiddler={{{ [<fishingrod>search-replace[currentTiddler],<currentTiddler>addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
+                            caption={{!!epub-title}}
+                            text="""{"neworder": "[sortan[]]"}"""
+                            type="application/json"
+                        />
+                        {{$:/language/fishing/readd}}
+                    </$list>
+                </$let>
             </$button>
         </div>
     </div>

@@ -1,13 +1,52 @@
 title: $:/Import/TWPUB/twpub-text
 
 \define link-actions()
-<$action-sendmessage $message="tm-scroll" selector={{{ [<navigateTo>escapecss[]addprefix[#]] }}}/>
+<$action-sendmessage
+    $message="tm-scroll"
+    selector={{{ [<navigateTo>escapecss[]addprefix[#]] }}}
+/>
 \end
 
-<$linkcatcher actions=<<link-actions>>>
-    <$list filter="[{!!twpub}plugintiddlers[]role[text]sortan[]allafter:include{!!twpub-after}allbefore:include{!!twpub-before}]">
-        <a id=<<currentTiddler>>>
-            <$transclude mode="inline"/>
-        </a>
+<$linkcatcher
+    actions=<<link-actions>>
+>
+    <$list
+        filter="[{!!twpub}plugintiddlers[]role[text]sortan[]allafter:include{!!twpub-after}allbefore:include{!!twpub-before}]"
+    >
+        <$set
+            name="state"
+            value={{{ [[$:/state/viewtemplate/visibility/]addsuffix<currentTiddler>] }}}
+        >
+            <$reveal
+                stateTitle=<<state>>
+                type="nomatch"
+                text=""
+                default=""
+                tag="div"
+            >
+                <div
+                    class="tc-dynaview-track-tiddler-when-visible"
+                    data-dynaview-track-tiddler=<<state>>
+                >
+                    <a id=<<currentTiddler>>>
+                        <$transclude mode="inline"/>
+                    </a>
+                </div>
+            </$reveal>
+            <$reveal
+                stateTitle=<<state>>
+                type="match"
+                text=""
+                default=""
+                tag="div"
+            >
+                <div
+                    class="tc-dynaview-track-tiddler-when-visible"
+                    data-dynaview-track-tiddler=<<state>>
+                >
+                    <a id=<<currentTiddler>>/>
+                </div>
+            </$reveal>
+        </$set>
     </$list>
 </$linkcatcher>

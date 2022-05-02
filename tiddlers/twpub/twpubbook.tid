@@ -1,9 +1,12 @@
 title: $:/Import/TWPUB/twpub-book
 
-<$transclude tiddler={{{ [{!!twpub}addsuffix[/cover]] }}}/>
-
-<$macrocall
-    $name="toc-tabbed-internal-nav"
-    tag={{!!title}}
-    sort="sortan[]"
+<$transclude
+    tiddler={{{ [{!!twpub}addsuffix[/cover]] }}}
 />
+
+<div class="tc-table-of-contents">
+    <$macrocall
+        $name="toc"
+        tag={{{ [{!!twpub}addsuffix[/toc]] }}}
+    />
+</div>
