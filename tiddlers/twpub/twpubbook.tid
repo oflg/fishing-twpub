@@ -4,9 +4,9 @@ title: $:/Import/TWPUB/twpub-book
     tiddler={{{ [{!!twpub}addsuffix[/cover]] }}}
 />
 
-<div class="tc-table-of-contents">
-    <$macrocall
-        $name="toc"
-        tag={{{ [{!!twpub}addsuffix[/toc]] }}}
-    />
-</div>
+<$macrocall
+    $name="toc-tabbed-internal-nav"
+    tag={{{ [{!!twpub}removeprefix[$:/plugins/]addsuffix[/toc]] }}}
+    sort="sortan[]"
+    unselectedText={{$:/language/fishing/preview}}
+/>
