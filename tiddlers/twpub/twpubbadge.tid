@@ -36,55 +36,6 @@ title: $:/Import/TWPUB/twpub-badge
             />
         </div>
     </div>
-    <$button
-        class="twpub-library-button"
-        disabled={{{ [all[tiddlers+shadows]twpub<currentTiddler>then[yes]else[no]] }}}
-    >
-        <$let
-            firstText={{{ [[/text/000000000]addprefix<currentTiddler>] }}}
-            lastText={{{ [{!!count-chunks}subtract[1]pad[9]addprefix[/text/]addprefix<currentTiddler>] }}}
-        >
-            <$list
-                filter="[<currentTiddler>plugintiddlers[]role[toc]sortan[]]"
-                variable="tocTiddler"
-                counter="counter"
-            >
-                <$action-createtiddler
-                    $basetitle={{{ [<tocTiddler>removeprefix[$:/plugins/]] [<tocTiddler>get[caption]] +[join[/]] }}}
-                    tags={{{ [<tocTiddler>tags[]removeprefix[$:/plugins/]] [<tocTiddler>tags[]get[caption]] +[join[/]format:titlelist[]] }}}
-                    twpub-after={{{ [<counter-first>match[yes]then<firstText>]
-                                    ~[<tocTiddler>get[target]] }}}
-                    twpub-before={{{ [<counter-last>match[yes]then<lastText>]
-                                    ~[<currentTiddler>plugintiddlers[]role[toc]sortan[]after<tocTiddler>first[]get[target]] }}}
-                    twpub=<<currentTiddler>>
-                    caption="{{||Excerpt}}"
-                    text="{{||$:/Import/TWPUB/twpub-text}}"
-                />
-            </$list>
-        </$let>
-        <$action-createtiddler
-            $basetitle={{{ [<currentTiddler>removeprefix[$:/plugins/]addsuffix[/]addsuffix{!!epub-title}] }}}
-            twpub=<<currentTiddler>>
-            caption="{{||Excerpt}}"
-            text="{{||$:/Import/TWPUB/twpub-book}}"
-        >
-            <$let
-                fishingrod="[twpub[currentTiddler]!tag[!]]"
-            >
-                <$action-setfield
-                    $tiddler={{{ [<fishingrod>search-replace[currentTiddler],<currentTiddler>addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
-                    caption={{!!epub-title}}
-                    text="""{"neworder": "[sortan[]]"}"""
-                    type="application/json"
-                />
-            </$let>
-        </$action-createtiddler>
-        <$list
-            filter="[all[tiddlers+shadows]twpub<currentTiddler>count[]match[0]]"
-        >
-            {{$:/core/images/excise}}
-        </$list> ''<$text text={{{ [all[tiddlers+shadows]twpub<currentTiddler>then{$:/language/fishing/added}else{$:/language/fishing/add}] }}}/>''
-    </$button>
 </$button>
 <$reveal
     state=<<qualify "$:/state/popup/twpub-badge">>
@@ -103,11 +54,46 @@ title: $:/Import/TWPUB/twpub-badge
         >
             <$button
                 class="tc-btn-invisible"
+                disabled={{{ [all[tiddlers+shadows]twpub<currentTiddler>then[yes]else[no]] }}}
             >
-                <$action-navigate
-                    $to=<<currentTiddler>>
-                />
-                {{$:/language/fishing/opentwpub}}
+                <$action-createtiddler
+                    $basetitle={{!!epub-title}}
+                    book=<<currentTiddler>>
+                    text="{{||$:/Import/TWPUB/twpub-book}}"
+                >
+                    <$let
+                        fishingrod="[twpub[currentTiddler]!tag[!]]"
+                        text={{{ [[/text/]addprefix<currentTiddler>] }}}
+                        toc={{{ [[/toc/]addprefix<currentTiddler>] }}}
+                        firstText={{{ [[/text/000000000]addprefix<currentTiddler>] }}}
+                        lastText={{{ [{!!count-chunks}subtract[1]pad[9]addprefix[/text/]addprefix<currentTiddler>] }}}
+                    >
+                        <$action-setfield
+                            $tiddler={{{ [<fishingrod>search-replace[currentTiddler],<currentTiddler>addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
+                            caption=<<createTiddler-title>>
+                            text="""{"neworder": "[sortan[]]"}"""
+                            type="application/json"
+                        />
+                        <$list
+                            filter="[all[tiddlers+shadows]prefix<toc>sortan[]]"
+                            variable="tocTiddler"
+                            counter="counter"
+                        >
+                            <$action-createtiddler
+                                $basetitle={{{ [<tocTiddler>get[caption]addprefix[/]addprefix<createTiddler-title>] }}}
+                                tags={{{ [<tocTiddler>tags[]get[caption]addprefix[/]addprefix<createTiddler-title>else<createTiddler-title>format:titlelist[]] }}}
+                                twpub-after={{{ [<counter-first>match[yes]then<firstText>]
+                                                ~[<tocTiddler>get[target]] }}}
+                                twpub-before={{{ [<counter-last>match[yes]then<lastText>]
+                                                ~[all[tiddlers+shadows]prefix<toc>sortan[]after<tocTiddler>first[]get[target]] }}}
+                                twpub=<<currentTiddler>>
+                                caption="{{||Excerpt}}"
+                                text="{{||$:/Import/TWPUB/twpub-text}}"
+                            />
+                        </$list>
+                    </$let>
+                </$action-createtiddler>
+                <$text text={{{ [all[tiddlers+shadows]twpub<currentTiddler>then{$:/language/fishing/added}else{$:/language/fishing/add}] }}}/>
             </$button>
             <$button
                 class="tc-btn-invisible"
@@ -128,6 +114,14 @@ title: $:/Import/TWPUB/twpub-badge
                         {{$:/language/fishing/readd}}
                     </$list>
                 </$let>
+            </$button>
+            <$button
+                class="tc-btn-invisible"
+            >
+                <$action-navigate
+                    $to=<<currentTiddler>>
+                />
+                {{$:/language/fishing/opentwpub}}
             </$button>
         </div>
     </div>

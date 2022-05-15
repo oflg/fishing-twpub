@@ -7,46 +7,24 @@ title: $:/Import/TWPUB/twpub-text
 />
 \end
 
+\define lorem-ipsum(index)
+<div class="tc-dynaview-track-tiddler-when-visible" data-dynaview-track-tiddler="$:/temp/fishing/visibility/$index$">
+    <$reveal state="$:/temp/fishing/visibility/$index$" type="nomatch" text="">
+        <a id=<<currentTiddler>>>
+            <$transclude mode="inline"/>
+        </a>
+    </$reveal>
+</div>
+\end
+
 <$linkcatcher
     actions=<<link-actions>>
 >
-    <$list
-        filter="[{!!twpub}plugintiddlers[]role[text]sortan[]allafter:include{!!twpub-after}allbefore:include{!!twpub-before}]"
+    <$let
+        text={{{ [[/text/]addprefix{!!twpub}] }}}
     >
-        <$set
-            name="state"
-            value={{{ [[$:/state/viewtemplate/visibility/]addsuffix<currentTiddler>] }}}
-        >
-            <$reveal
-                stateTitle=<<state>>
-                type="nomatch"
-                text=""
-                default=""
-                tag="div"
-            >
-                <div
-                    class="tc-dynaview-track-tiddler-when-visible"
-                    data-dynaview-track-tiddler=<<state>>
-                >
-                    <a id=<<currentTiddler>>>
-                        <$transclude mode="inline"/>
-                    </a>
-                </div>
-            </$reveal>
-            <$reveal
-                stateTitle=<<state>>
-                type="match"
-                text=""
-                default=""
-                tag="div"
-            >
-                <div
-                    class="tc-dynaview-track-tiddler-when-visible"
-                    data-dynaview-track-tiddler=<<state>>
-                >
-                    <a id=<<currentTiddler>>/>
-                </div>
-            </$reveal>
-        </$set>
-    </$list>
+        <$list filter="[all[tiddlers+shadows]prefix<text>sortan[]allafter:include{!!twpub-after}allbefore:include{!!twpub-before}]">
+            <$macrocall $name="lorem-ipsum" index=<<currentTiddler>>/>
+        </$list>
+    </$let>
 </$linkcatcher>

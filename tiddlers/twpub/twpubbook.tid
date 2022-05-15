@@ -1,12 +1,13 @@
 title: $:/Import/TWPUB/twpub-book
 
 <$transclude
-    tiddler={{{ [{!!twpub}addsuffix[/cover]] }}}
+    tiddler={{{ [{!!book}addsuffix[/cover]] }}}
 />
 
 <$macrocall
     $name="toc-tabbed-internal-nav"
-    tag={{{ [{!!twpub}removeprefix[$:/plugins/]addsuffix[/toc]] }}}
+    tag={{!!title}}
     sort="sortan[]"
+    selectedTiddler={{{ [[$:/state/twpub/]addsuffix{!!book}] }}}
     unselectedText={{$:/language/fishing/preview}}
 />
