@@ -81,7 +81,7 @@ title: $:/Import/TWPUB/twpub-badge
                         >
                             <$action-createtiddler
                                 $basetitle={{{ [<createTiddler-title>] [<tocTiddler>split[/]last[]] [<tocTiddler>get[caption]] +[join[/]] }}}
-                                tags={{{ [<tocTiddler>tags[]get[caption]addprefix[/]addprefix<createTiddler-title>else<createTiddler-title>format:titlelist[]] }}}
+                                tags={{{ [<createTiddler-title>] [<tocTiddler>tags[]split[/]last[]!match[toc]] [<tocTiddler>tags[]get[caption]] +[join[/]format:titlelist[]] }}}
                                 twpub-after={{{ [<counter-first>match[yes]then<firstText>]
                                                 ~[<tocTiddler>get[target]] }}}
                                 twpub-before={{{ [<counter-last>match[yes]then<lastText>]
