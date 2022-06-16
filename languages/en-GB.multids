@@ -2,7 +2,7 @@ title: $:/language/fishing/
 
 twpub: TWPUB books
 twpubtip: TWPUB is a electronic publications based on TiddlyWiki
-twpublibrary: TWPUB Books Library
+twpublibrary: TWPUB Books Plugin Library
 twpublibrarytip: This plugin library can be used to install and update TWPUB books.
 add: Split into incremental reading materials by chapter
 added: Has been split to commonly used Filter
