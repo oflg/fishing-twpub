@@ -4,9 +4,9 @@
     "description": "Import TWPUB into Fishing",
     "list": "readme license",
     "name": "Fishing TWPUB",
-    "parent-plugin": "$:/plugins/oflg/fishing-catchfish",
+    "dependents": "$:/plugins/oflg/fishing-catchfish",
     "plugin-type": "plugin",
     "source": "https://github.com/oflg/fishing-twpub",
     "title": "$:/plugins/oflg/fishing-twpub",
-    "version": "0.3.3"
+    "version": "0.3.4"
 }
