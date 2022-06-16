@@ -2,6 +2,6 @@ caption: {{$:/language/fishing/twpublibrary}}
 library-type: twpub
 tags: $:/tags/PluginLibrary
 title: $:/config/TWPUBPluginLibrary
-url: https://tiddlymemo.org/library/twpub/
+url: https://twpub-tools.org/library/
 
 {{$:/language/fishing/twpublibrarytip}}
