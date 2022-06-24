@@ -25,6 +25,6 @@ title: $:/Import/TWPUB
 
 <$list
     filter="[all[tiddlers]plugin-type[plugin]has[epub-title]sort[]]"
-    template="$:/Import/TWPUB/twpub-badge"
+    template="$:/Import/TWPUB/badge"
     storyview="pop"
 />

@@ -1,7 +1,8 @@
-title: $:/Import/TWPUB/twpub-badge
+title: $:/Import/TWPUB/badge
+code-body: yes
 
 <$button
-    popup=<<qualify "$:/state/popup/twpub-badge">>
+    popup=<<qualify "$:/state/popup/badge">>
     class="twpub-badge"
 >
     <div
@@ -38,7 +39,7 @@ title: $:/Import/TWPUB/twpub-badge
     </div>
 </$button>
 <$reveal
-    state=<<qualify "$:/state/popup/twpub-badge">>
+    state=<<qualify "$:/state/popup/badge">>
     type="popup"
     position="below"
     tag="div"
@@ -59,7 +60,6 @@ title: $:/Import/TWPUB/twpub-badge
                 <$action-createtiddler
                     $basetitle={{!!epub-title}}
                     book=<<currentTiddler>>
-                    text="{{||$:/Import/TWPUB/twpub-book}}"
                 >
                     <$let
                         fishingrod="[twpub[currentTiddler]!tag[!]]"
@@ -88,7 +88,6 @@ title: $:/Import/TWPUB/twpub-badge
                                                 ~[all[tiddlers+shadows]prefix<toc>sortan[]after<tocTiddler>first[]get[target]] }}}
                                 twpub=<<currentTiddler>>
                                 caption="{{||Excerpt}}"
-                                text="{{||$:/Import/TWPUB/twpub-text}}"
                             />
                         </$list>
                     </$let>

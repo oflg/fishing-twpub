@@ -1,0 +1,20 @@
+title: $:/Import/TWPUB/book
+tags: $:/tags/ViewTemplate
+list-after: $:/core/ui/ViewTemplate/body
+code-body: yes
+
+<$list
+    filter="[<currentTiddler>has[book]]"
+>
+    <$transclude
+        tiddler={{{ [{!!book}addsuffix[/cover]] }}}
+    />
+
+    <$macrocall
+        $name="toc-tabbed-internal-nav"
+        tag={{!!title}}
+        sort="sortan[]"
+        selectedTiddler={{{ [[$:/state/twpub/]addsuffix{!!book}] }}}
+        unselectedText={{$:/language/fishing/preview}}
+    />
+</$list>
