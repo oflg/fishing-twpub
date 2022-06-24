@@ -1,7 +1,7 @@
 {
     "author": "oflg",
     "core-version": ">=5.2.2",
-    "description": "Import TWPUB into Fishing",
+    "description": "Import TWPUB books to Fishing for Incremental Reading",
     "list": "readme license",
     "name": "Fishing TWPUB",
     "dependents": "$:/plugins/oflg/fishing-catchfish",

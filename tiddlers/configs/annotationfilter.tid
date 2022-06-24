@@ -1,4 +1,4 @@
 title: $:/config/FishingFilter/Annotation/twpub
 tags: $:/tags/FishingFilter/annotation
 
-[{!!title}has[twpub]]
+[<currentTiddler>has[twpub]]

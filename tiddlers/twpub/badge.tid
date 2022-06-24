@@ -82,10 +82,8 @@ code-body: yes
                             <$action-createtiddler
                                 $basetitle={{{ [<createTiddler-title>] [<tocTiddler>split[/]last[]] [<tocTiddler>get[caption]] +[join[/]] }}}
                                 tags={{{ [<createTiddler-title>] [<tocTiddler>tags[]split[/]last[]!match[toc]] [<tocTiddler>tags[]get[caption]] +[join[/]format:titlelist[]] }}}
-                                twpub-after={{{ [<counter-first>match[yes]then<firstText>]
-                                                ~[<tocTiddler>get[target]] }}}
-                                twpub-before={{{ [<counter-last>match[yes]then<lastText>]
-                                                ~[all[tiddlers+shadows]prefix<toc>sortan[]after<tocTiddler>first[]get[target]] }}}
+                                twpub-after={{{ [<counter-first>match[yes]then<firstText>] ~[<tocTiddler>get[target]] }}}
+                                twpub-before={{{ [<counter-last>match[yes]then<lastText>] ~[all[tiddlers+shadows]prefix<toc>sortan[]after<tocTiddler>first[]get[target]] }}}
                                 twpub=<<currentTiddler>>
                                 caption="{{||Excerpt}}"
                             />
