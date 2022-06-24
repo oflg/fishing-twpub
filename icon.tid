@@ -1,0 +1,11 @@
+tags: $:/tags/Image
+title: $:/plugins/oflg/fishing-twpub/icon
+
+<svg width="22pt" height="22pt" class="tc-image-home-button tc-image-button" viewBox="0 0 128 128" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+    <g id="twpub">
+        <path d="M0 0L128 0L128 128L0 128L0 0Z" id="Background" fill-opacity="0" fill-rule="evenodd" stroke="none" />
+        <g clip-path="url(#mask_1)">
+            <path d="M8 42.65L8 111.187L25.2375 111.187L21.3125 42.65L8 42.65ZM100.413 23.4625L100.413 46.2L120 43.15L120 20.3375L100.413 23.4625ZM100.413 52.25L120 52.25L120 109.613L100.413 109.613L100.413 52.25ZM63.3125 84.5375L78.475 86.8875L98.075 28.95L83.5875 23.4625L63.3125 84.5375ZM56.1625 106.1L70.2625 111.187L75.8875 94.5625L61.475 90.1125L56.1625 106.1ZM23.6 33.275L52.25 33.275L52.25 16.8125L22.8875 19.1625L23.6 33.275ZM24.55 51.775L52.25 51.775L52.25 37.9625L23.8375 37.9625L24.55 51.775ZM27.5875 111.187L52.25 111.187L52.25 54.7125L24.7 54.7125L27.5875 111.187Z" id="Shape" fill-rule="evenodd" stroke="none" />
+        </g>
+    </g>
+</svg>
