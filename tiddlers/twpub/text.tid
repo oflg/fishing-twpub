@@ -10,20 +10,27 @@ code-body: yes
 />
 \end
 
-<$list
-    filter="[<currentTiddler>has[twpub]has[twpub-after]has[twpub-before]]"
+<$reveal
+    state=<<folded-state>>
+    type="nomatch"
+    text="hide"
+    animate="yes"
 >
-    <$linkcatcher
-        actions=<<link-actions>>
+    <$list
+        filter="[<currentTiddler>has[twpub]has[twpub-after]has[twpub-before]]"
     >
-        <$let
-            text={{{ [[/text/]addprefix{!!twpub}] }}}
+        <$linkcatcher
+            actions=<<link-actions>>
         >
-            <$list filter="[all[tiddlers+shadows]prefix<text>sortan[]allafter:include{!!twpub-after}allbefore:include{!!twpub-before}]">
-                <a id=<<currentTiddler>>>
-                    <$transclude mode="inline"/>
-                </a>
-            </$list>
-        </$let>
-    </$linkcatcher>
-</$list>
+            <$let
+                text={{{ [[/text/]addprefix{!!twpub}] }}}
+            >
+                <$list filter="[all[tiddlers+shadows]prefix<text>sortan[]allafter:include{!!twpub-after}allbefore:include{!!twpub-before}]">
+                    <a id=<<currentTiddler>>>
+                        <$transclude mode="inline"/>
+                    </a>
+                </$list>
+            </$let>
+        </$linkcatcher>
+    </$list>
+</$reveal>
