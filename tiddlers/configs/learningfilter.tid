@@ -1,5 +1,5 @@
 title: $:/config/FishingFilter/Learning/twpub
 tags: $:/tags/FishingFilter/learning
 
-[<currentTiddler>has[twpub]]
+[<currentTiddler>!tag[!]has[twpub]]
 -[<currentTiddler>subfilter{$:/config/fishingpond/unduepond}]
