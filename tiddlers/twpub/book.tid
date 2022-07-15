@@ -10,11 +10,11 @@ code-body: yes
         tiddler={{{ [{!!book}addsuffix[/cover]] }}}
     />
 
-    <$macrocall
-        $name="toc-tabbed-internal-nav"
-        tag={{!!title}}
-        sort="sortan[]"
-        selectedTiddler={{{ [[$:/state/twpub/]addsuffix{!!book}] }}}
-        unselectedText={{$:/language/fishing/preview}}
-    />
+    <div class="tc-table-of-contents">
+        <$macrocall
+            $name="toc-selective-expandable"
+            tag={{!!title}}
+            sort="sortan[]"
+        />
+    </div>
 </$list>
