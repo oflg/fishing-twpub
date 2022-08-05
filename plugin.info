@@ -1,6 +1,6 @@
 {
     "author": "oflg",
-    "core-version": ">=5.2.2",
+    "core-version": ">=5.2.3",
     "description": "Import TWPUB books to Fishing for Incremental Reading",
     "list": "readme license",
     "name": "Fishing TWPUB",
@@ -8,5 +8,5 @@
     "plugin-type": "plugin",
     "source": "https://github.com/oflg/fishing-twpub",
     "title": "$:/plugins/oflg/fishing-twpub",
-    "version": "0.3.7"
+    "version": "0.3.8"
 }
