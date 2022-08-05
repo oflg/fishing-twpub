@@ -71,7 +71,7 @@ code-body: yes
                         <$action-setfield
                             $tiddler={{{ [<fishingrod>search-replace[currentTiddler],<currentTiddler>addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
                             caption=<<createTiddler-title>>
-                            text="""{"neworder": "[sortan[]]"}"""
+                            text="""{"dueorder": "[sortan[]]"}"""
                             type="application/json"
                         />
                         <$list
