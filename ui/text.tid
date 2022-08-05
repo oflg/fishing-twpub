@@ -1,0 +1,42 @@
+title: $:/plugins/oflg/fishing-twpub/ui/ViewTemplate/text
+tags: $:/tags/ViewTemplate
+list-after: $:/core/ui/ViewTemplate/body
+code-body: yes
+
+\define link-actions()
+<$action-sendmessage
+    $message="tm-scroll"
+    selector={{{ [<navigateTo>escapecss[]addprefix[#]] }}}
+/>
+\end
+
+<$reveal
+    state=<<folded-state>>
+    type="nomatch"
+    text="hide"
+    animate="yes"
+>
+    <$list
+        filter="[<currentTiddler>has[twpub]has[twpub-after]has[twpub-before]]"
+    >
+        <$linkcatcher
+            actions=<<link-actions>>
+        >
+            <$let
+                text={{{ [[/text/]addprefix{!!twpub}] }}}
+            >
+                <$list
+                    filter="[all[tiddlers+shadows]prefix<text>sortan[]allafter:include{!!twpub-after}allbefore:include{!!twpub-before}]"
+                >
+                    <a
+                        id=<<currentTiddler>>
+                    >
+                        <$transclude
+                            mode="inline"
+                        />
+                    </a>
+                </$list>
+            </$let>
+        </$linkcatcher>
+    </$list>
+</$reveal>
