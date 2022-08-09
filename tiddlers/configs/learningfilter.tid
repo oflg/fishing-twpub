@@ -2,4 +2,4 @@ title: $:/config/FishingFilter/Learning/twpub
 tags: $:/tags/FishingFilter/learning
 
 [<currentTiddler>!tag[!]has[twpub]]
--[<currentTiddler>subfilter{$:/config/fishingpond/unduepond}]
+-[<currentTiddler>sameday:review<now YYYY0MM0DD>]
