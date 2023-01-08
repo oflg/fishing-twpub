@@ -100,7 +100,7 @@ code-body: yes
                 >
                      <$list
                         filter="[all[tiddlers+shadows]twpub<currentTiddler>first[]]"
-                        variable="null"
+                        variable="ignore"
                     >
                         <$action-setfield
                             $tiddler={{{ [<fishingrod>search-replace[currentTiddler],<currentTiddler>addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
