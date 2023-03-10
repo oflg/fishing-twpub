@@ -90,7 +90,7 @@ code-body: yes
                         </$list>
                     </$let>
                 </$action-createtiddler>
-                <$text text={{{ [all[tiddlers+shadows]twpub<currentTiddler>then{$:/language/fishing/added}else{$:/language/fishing/add}] }}}/>
+                <$text text={{{ [all[tiddlers+shadows]twpub<currentTiddler>then{$:/language/fishing-twpub/added}else{$:/language/fishing-twpub/add}] }}}/>
             </$button>
             <$button
                 class="tc-btn-invisible"
@@ -108,7 +108,7 @@ code-body: yes
                             text="""{"dueorder": "[sortan[]]"}"""
                             type="application/json"
                         />
-                        {{$:/language/fishing/readd}}
+                        {{$:/language/fishing-twpub/readd}}
                     </$list>
                 </$let>
             </$button>
@@ -118,7 +118,7 @@ code-body: yes
                 <$action-navigate
                     $to=<<currentTiddler>>
                 />
-                {{$:/language/fishing/opentwpub}}
+                {{$:/language/fishing-twpub/opentwpub}}
             </$button>
         </div>
     </div>

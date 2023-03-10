@@ -1,7 +1,7 @@
-caption: {{$:/language/fishing/twpublibrary}}
+caption: {{$:/language/fishing-twpub/twpublibrary}}
 library-type: twpub
 tags: $:/tags/PluginLibrary
 title: $:/config/TWPUBPluginLibrary
 url: https://twpub-tools.org/library/
 
-{{$:/language/fishing/twpublibrarytip}}
+{{$:/language/fishing-twpub/twpublibrarytip}}
