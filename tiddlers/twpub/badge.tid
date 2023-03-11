@@ -71,7 +71,7 @@ code-body: yes
                         <$action-setfield
                             $tiddler={{{ [<fishingrod>search-replace[currentTiddler],<currentTiddler>addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
                             caption=<<createTiddler-title>>
-                            text="""{"dueorder": "[sortan[]]"}"""
+                            text="""{"dueorder": "[sortan[]]","neworder": "[sortan[]]"}"""
                             type="application/json"
                         />
                         <$list
@@ -105,7 +105,7 @@ code-body: yes
                         <$action-setfield
                             $tiddler={{{ [<fishingrod>search-replace[currentTiddler],<currentTiddler>addprefix[$:/plugins/oflg/fishing/fishingrod/]] }}}
                             caption={{!!epub-title}}
-                            text="""{"dueorder": "[sortan[]]"}"""
+                            text="""{"dueorder": "[sortan[]]","neworder": "[sortan[]]"}"""
                             type="application/json"
                         />
                         {{$:/language/fishing-twpub/readd}}
